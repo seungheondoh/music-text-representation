@@ -1,14 +1,16 @@
 ## Toward Universal Text-to-Music Retrieval
-- [Demo](https://seungheondoh.github.io/text-music-representation-demo/)
-- [Paper ArXiv](#)
-- [Pretrained Model at Zenodo](#)
+This is a PyTorch implementation of [Toward Universal Text-to-Music Retrieval](#) for multi-modal music representation.
+
+> [**Toward Universal Text-to-Music Retrieval**](https://arxiv.org/abs/2011.09157),  
+> SeungHeon Doh, Minz Won, Keunwoo Choi, Juhan Nam
+> submitted ICASSP 2023 
+> [Demo](https://seungheondoh.github.io/text-music-representation-demo/)
+> [Paper ArXiv](#)
+> [Pretrained Model at Zenodo](#)
 
 <p align = "center">
 <img src = "https://i.imgur.com/Og18FbB.png">
 </p>
-
-### Introduction
-This is a PyTorch implementation of [Toward Universal Text-to-Music Retrieval](#) for multi-modal music representation.
 
 ### Main Results
 The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/msd-subsets) pre-training.
@@ -46,8 +48,8 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Classification</td>
     <td>Binary</td>
     <td>Tag</td>
-    <td>90.5 / 39.8</td>
-    <td>86.2 / 8.9</td>
+    <td>90.5/39.8</td>
+    <td>86.2/8.9</td>
     <td>3.7</td>
     <td>14.3</td>
     <td>22.5</td>
@@ -58,8 +60,8 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Triplet</td>
     <td>GloVe</td>
     <td>Tag</td>
-    <td>89.2 / 36.0</td>
-    <td>82.6 / 6.1</td>
+    <td>89.2/36.0</td>
+    <td>82.6/6.1</td>
     <td>2.8</td>
     <td>11.2</td>
     <td>18.6</td>
@@ -70,8 +72,8 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Triplet</td>
     <td>GloVe</td>
     <td>Caption</td>
-    <td>88.6 / 37.1</td>
-    <td>76.8 / 5.3</td>
+    <td>88.6/37.1</td>
+    <td>76.8/5.3</td>
     <td>5.4</td>
     <td>22.1</td>
     <td>35.0</td>
@@ -82,8 +84,8 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Triplet</td>
     <td>GloVe</td>
     <td>Stochastic</td>
-    <td>89.2 / 37.6</td>
-    <td>81.6 / 6.2</td>
+    <td>89.2/37.6</td>
+    <td>81.6/6.2</td>
     <td>6.4</td>
     <td>21.8</td>
     <td>32.7</td>
@@ -94,8 +96,8 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Triplet</td>
     <td>BERT</td>
     <td>Tag</td>
-    <td>86.9 / 30.2</td>
-    <td>81.7 / 5.1</td>
+    <td>86.9/30.2</td>
+    <td>81.7/5.1</td>
     <td>1.6</td>
     <td>6.2</td>
     <td>12.0</td>
@@ -106,8 +108,8 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Triplet</td>
     <td>BERT</td>
     <td>Caption</td>
-    <td>87.7 / 35.0</td>
-    <td>78.9 / 5.4</td>
+    <td>87.7/35.0</td>
+    <td>78.9/5.4</td>
     <td>6.7</td>
     <td>23.6</td>
     <td>36.6</td>
@@ -118,8 +120,8 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Triplet</td>
     <td>BERT</td>
     <td>Stochastic</td>
-    <td>88.4 / 35.0</td>
-    <td>83.6 / 6.3</td>
+    <td>88.4/35.0</td>
+    <td>83.6/6.3</td>
     <td>6.6</td>
     <td>25.1</td>
     <td>39.4</td>
@@ -130,8 +132,8 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Contrastive</td>
     <td>BERT</td>
     <td>Tag</td>
-    <td>90.6 / 40.2</td>
-    <td>86.4 / 8.8</td>
+    <td>90.6/40.2</td>
+    <td>86.4/8.8</td>
     <td>2.5</td>
     <td>13.7</td>
     <td>22.5</td>
@@ -142,8 +144,8 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Contrastive</td>
     <td>BERT</td>
     <td>Caption</td>
-    <td>87.0 / 32.5</td>
-    <td>77.6 / 5.1</td>
+    <td>87.0/32.5</td>
+    <td>77.6/5.1</td>
     <td>6.8</td>
     <td>25.4</td>
     <td>38.4</td>
@@ -154,8 +156,8 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Contrastive</td>
     <td>BERT</td>
     <td>Stochastic</td>
-    <td>89.8 / 38.0</td>
-    <td>84.8 / 7.7</td>
+    <td>89.8/38.0</td>
+    <td>84.8/7.7</td>
     <td>10.2</td>
     <td>29.8</td>
     <td>42.8</td>
@@ -165,6 +167,9 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
 </tbody>
 </table>
 
+
+**Note:** 
+- See our paper for more results on different benchmarks, including MTAT, MTG-Jamendo, FMA, GTZAN, Emotify, KVT.
 
 ### Text Representation
 From our empirical study, we find that there is a strong association between text representation (train stage) and text query types (test stage). We propose a stochastic text representation. During the training stage, we select K words from L length text caption. At this time, K is uniformly randomly sampled among integer numbers from 1 (tag length) to L (caption length). Unlike the dropout method, which determines the length by probability value, stochastic sampling has a dynamic input length.
@@ -211,9 +216,9 @@ tar -zxvf mtr.tar.gz
 
 ### Start Training
 
-1. Download ECALS(Extended Cleaned tag and Artist-Level Stratified split) dataset & MSD audio [Link](https://github.com/SeungHeonDoh/msd-subsets)
+1. Pretraining (Quick start: mtr/contrastive/main.sh)
+Download ECALS(Extended Cleaned tag and Artist-Level Stratified split) dataset & MSD audio [Link](https://github.com/SeungHeonDoh/msd-subsets)
 
-2. Pretraining (Quick start: mtr/contrastive/main.sh)
 ```
 cd mtr/{triplet or contrastive}
 python train.py --text_type {bert,glove} --text_rep {tag,caption,stochastic} --data_dir {msd-subsets} --multiprocessing-distributed
@@ -240,7 +245,9 @@ parser.add_argument("--mlp_dim", default=128, type=int) -> joint embedding dim
 ```
 
 
-3. Zeroshot Transfer, and Probing (Quick start: mtr/transfer/main.sh)
+2. Zeroshot Transfer, and Probing (Quick start: mtr/transfer/main.sh)
+Download downstream dataset [Link](https://github.com/SeungHeonDoh/msu-benchmark)
+
 ```
 cd mtr/transfer
 python extractor.py --framework {classification, triplet, contrastive} --text_type {binary, glove, bert} --text_rep {tag,caption,stocahstic} --eval_dataset $DATASET
@@ -251,4 +258,20 @@ python train_probing.py --probe_type {linear, mlp} --framework {classification, 
 
 python eval_probing.py --probe_type {linear, mlp} --framework {classification, triplet, contrastive} --text_type {binary, glove, bert} --text_rep {tag,caption,stocahstic} --eval_dataset $DATASET
 ```
+### License
+This project is under the CC-BY-NC 4.0 license. See LICENSE for details.
 
+
+### Acknowledgement
+We would like to thank the [MoCoV3](https://github.com/facebookresearch/moco-v3) for its training code and [jukemir-CodifiedLM](https://github.com/p-lambda/jukemir) for its evaluation protocal.
+
+### Citation
+Please consider citing our paper in your publications if the project helps your research. BibTeX reference is as follow.
+```
+@inproceedings{toward2023doh,
+  title={Toward Universal Text-to-Music Retrieval},
+  author={SeungHeon Doh, Minz Won, Keunwoo Choi, Juhan Nam},
+  booktitle = {},
+  year={2023}
+}
+```
