@@ -1,19 +1,19 @@
 ## Toward Universal Text-to-Music Retrieval
 This is a PyTorch implementation of [Toward Universal Text-to-Music Retrieval](#) for multi-modal music representation.
 
-> [**Toward Universal Text-to-Music Retrieval**](https://arxiv.org/abs/2011.09157),  
-> SeungHeon Doh, Minz Won, Keunwoo Choi, Juhan Nam
-> submitted ICASSP 2023 
-> [Demo](https://seungheondoh.github.io/text-music-representation-demo/)
-> [Paper ArXiv](#)
-> [Pretrained Model at Zenodo](#)
+> [**Toward Universal Text-to-Music Retrieval**](https://arxiv.org/abs/2011.09157)   
+> SeungHeon Doh, Minz Won, Keunwoo Choi, Juhan Nam   
+> submitted ICASSP 2023   
+> [Demo](https://seungheondoh.github.io/text-music-representation-demo/)   
+> [Paper ArXiv](#)   
+> [Pretrained Model at Zenodo](#)   
 
 <p align = "center">
 <img src = "https://i.imgur.com/Og18FbB.png">
 </p>
 
 ### Main Results
-The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/msd-subsets) pre-training.
+The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/msd-subsets) dataset pre-training.
 **Pre-trained models** and **configs** can be found at [Zenodo-Pretrained]().
 
 <table>
@@ -217,6 +217,7 @@ tar -zxvf mtr.tar.gz
 ### Start Training
 
 1. Pretraining (Quick start: mtr/contrastive/main.sh)
+
 Download ECALS(Extended Cleaned tag and Artist-Level Stratified split) dataset & MSD audio [Link](https://github.com/SeungHeonDoh/msd-subsets)
 
 ```
@@ -246,7 +247,16 @@ parser.add_argument("--mlp_dim", default=128, type=int) -> joint embedding dim
 
 
 2. Zeroshot Transfer, and Probing (Quick start: mtr/transfer/main.sh)
-Download downstream dataset [Link](https://github.com/SeungHeonDoh/msu-benchmark)
+
+Download downstream dataset and preprocessing code [github](https://github.com/SeungHeonDoh/msu-benchmark), and we release datasplit and metadata annotation in [zenodo](https://zenodo.org/record/7162767).
+
+Downstream dataset consists: 
+- MTAT: https://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset
+- FMA: https://github.com/mdeff/fma
+- MTG-JAMENDO: https://github.com/MTG/mtg-jamendo-dataset
+- GTZAN: http://opihi.cs.uvic.ca/sound/genres.tar.gz
+- KVT: https://khlukekim.github.io/kvtdataset/
+- Emotify: http://www2.projects.science.uu.nl/memotion/emotifydata/
 
 ```
 cd mtr/transfer
