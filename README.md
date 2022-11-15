@@ -214,9 +214,7 @@ wget
 tar -zxvf mtr.tar.gz 
 ```
 
-### Start Training
-
-1. Pretraining (Quick start: mtr/contrastive/main.sh)
+### Pretraining (Quick start: mtr/contrastive/main.sh)
 
 Download ECALS(Extended Cleaned tag and Artist-Level Stratified split) dataset & MSD audio [Link](https://github.com/SeungHeonDoh/msd-subsets)
 
@@ -246,17 +244,11 @@ parser.add_argument("--mlp_dim", default=128, type=int) -> joint embedding dim
 ```
 
 
-2. Zeroshot Transfer, and Probing (Quick start: mtr/transfer/main.sh)
+### Zeroshot Transfer, and Probing (Quick start: mtr/transfer/main.sh)
 
 Download downstream dataset and preprocessing code [github](https://github.com/SeungHeonDoh/msu-benchmark), and we release datasplit and metadata annotation in [zenodo](https://zenodo.org/record/7162767).
 
-Downstream dataset consists: 
-- MTAT: https://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset
-- FMA: https://github.com/mdeff/fma
-- MTG-JAMENDO: https://github.com/MTG/mtg-jamendo-dataset
-- GTZAN: http://opihi.cs.uvic.ca/sound/genres.tar.gz
-- KVT: https://khlukekim.github.io/kvtdataset/
-- Emotify: http://www2.projects.science.uu.nl/memotion/emotifydata/
+Downstream dataset consists [MTAT](https://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset), [FMA](https://github.com/mdeff/fma), [MTG-JAMENDO](https://github.com/MTG/mtg-jamendo-dataset), [GTZAN](http://opihi.cs.uvic.ca/sound/genres.tar.gz), [KVT](https://khlukekim.github.io/kvtdataset/), [Emotify](http://www2.projects.science.uu.nl/memotion/emotifydata/)
 
 ```
 cd mtr/transfer
