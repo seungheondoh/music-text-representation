@@ -226,7 +226,10 @@ Download ECALS(Extended Cleaned tag and Artist-Level Stratified split) dataset &
 
 ```
 cd mtr/{triplet or contrastive}
+# train pretrained model
 python train.py --text_type {bert,glove} --text_rep {tag,caption,stochastic} --data_dir {msd-subsets} --multiprocessing-distributed
+
+# evaluation on ECALS dataset (single, multi query)
 python test.py --text_type {bert,glove} --text_rep {tag,caption,stochastic} --data_dir {msd-subsets}
 ```
 
@@ -258,12 +261,16 @@ Downstream dataset consists [MTAT](https://mirg.city.ac.uk/codeapps/the-magnatag
 
 ```
 cd mtr/transfer
+# extract embedding
 python extractor.py --framework {classification, triplet, contrastive} --text_type {binary, glove, bert} --text_rep {tag,caption,stocahstic} --eval_dataset $DATASET
 
+# eval zero-shot transfer
 python eval_zs.py --framework {triplet, contrastive} --text_type {binary, glove, bert} --text_rep {tag,caption,stocahstic} --eval_dataset $DATASET
 
+# train shallow classifier
 python train_probing.py --probe_type {linear, mlp} --framework {classification, triplet, contrastive} --text_type {binary, glove, bert} --text_rep {tag,caption,stocahstic} --eval_dataset $DATASET
 
+# eval shallow classifier
 python eval_probing.py --probe_type {linear, mlp} --framework {classification, triplet, contrastive} --text_type {binary, glove, bert} --text_rep {tag,caption,stocahstic} --eval_dataset $DATASET
 ```
 
