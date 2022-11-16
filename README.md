@@ -1,12 +1,18 @@
 ## Toward Universal Text-to-Music Retrieval
-This is a PyTorch implementation of [Toward Universal Text-to-Music Retrieval](#) for multi-modal music representation.
+This is a PyTorch implementation of [Toward Universal Text-to-Music Retrieval](#) for multi-modal music representation learning. Check our [demo](https://seungheondoh.github.io/text-music-representation-demo/)
 
-> [**Toward Universal Text-to-Music Retrieval**](https://arxiv.org/abs/2011.09157)   
+> [**Toward Universal Text-to-Music Retrieval**](#)   
 > SeungHeon Doh, Minz Won, Keunwoo Choi, Juhan Nam   
 > submitted ICASSP 2023   
-> [Demo](https://seungheondoh.github.io/text-music-representation-demo/)   
-> [Paper ArXiv](#)   
-> [Pretrained Model at Zenodo](#)   
+
+
+**TL;DR**
+
+- We introduced effective design choices for universal text-to-music retrieval. Recent text-music representation learning frameworks are assessed by using a carefully designed dataset and downstream tasks
+- Our proposed stochastic text representation achieved robust performance in tag-level, caption-level, and zero-shot query retrieval cases
+- Contrastive models achieve better performance than triplet models in both retrieval and downstream tasks.
+- Reproducible code, [pre-trained models](https://zenodo.org/record/7322135), MSD-ECALS [music-caption dataset](https://github.com/SeungHeonDoh/msd-subsets) and the [downstream benchmark](https://github.com/SeungHeonDoh/msu-benchmark) are available online
+for future research.
 
 <p align = "center">
 <img src = "https://i.imgur.com/Og18FbB.png">
@@ -14,7 +20,7 @@ This is a PyTorch implementation of [Toward Universal Text-to-Music Retrieval](#
 
 ### Main Results
 The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/msd-subsets) dataset pre-training.
-**Pre-trained models** and **configs** can be found at [Zenodo-Pretrained]().
+**Pre-trained models** and **configs** can be found at [Zenodo-Pretrained](https://zenodo.org/record/7322135).
 
 <table>
 <thead>
@@ -33,7 +39,7 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td rowspan="2">Text Rep.</td>
     <td>50 Tag</td>
     <td>1054 Tag</td>
-    <td colspan="5">1000 Caption</td>
+    <td colspan="5">1000 Music-Caption Pair</td>
   </tr>
   <tr>
     <td>ROC/PR</td>
@@ -210,11 +216,11 @@ pip install -r requirements.txt
 
 ### Using Pretrained Model
 ```
-wget 
+wget https://zenodo.org/record/7322135/files/mtr.tar.gz
 tar -zxvf mtr.tar.gz 
 ```
 
-### Pretraining (Quick start: mtr/contrastive/main.sh)
+### 1.Text-Music Pre-training (Quick start: mtr/contrastive/main.sh)
 
 Download ECALS(Extended Cleaned tag and Artist-Level Stratified split) dataset & MSD audio [Link](https://github.com/SeungHeonDoh/msd-subsets)
 
@@ -244,7 +250,7 @@ parser.add_argument("--mlp_dim", default=128, type=int) -> joint embedding dim
 ```
 
 
-### Zeroshot Transfer, and Probing (Quick start: mtr/transfer/main.sh)
+### 2. Zeroshot Transfer, and Probing (Quick start: mtr/transfer/main.sh)
 
 Download downstream dataset and preprocessing code [github](https://github.com/SeungHeonDoh/msu-benchmark), and we release datasplit and metadata annotation in [zenodo](https://zenodo.org/record/7162767).
 
@@ -260,6 +266,7 @@ python train_probing.py --probe_type {linear, mlp} --framework {classification, 
 
 python eval_probing.py --probe_type {linear, mlp} --framework {classification, triplet, contrastive} --text_type {binary, glove, bert} --text_rep {tag,caption,stocahstic} --eval_dataset $DATASET
 ```
+
 ### License
 This project is under the CC-BY-NC 4.0 license. See LICENSE for details.
 
