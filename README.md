@@ -54,13 +54,13 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
     <td>Classification</td>
     <td>Binary</td>
     <td>Tag</td>
-    <td>90.5/39.8</td>
-    <td>86.2/8.9</td>
-    <td>3.7</td>
-    <td>14.3</td>
-    <td>22.5</td>
-    <td>8.4</td>
-    <td>64</td>
+    <td>90.2/39.5</td>
+    <td>86.4/8.8</td>
+    <td>4.0</td>
+    <td>13.8</td>
+    <td>20.1</td>
+    <td>8.3</td>
+    <td>86</td>
   </tr>
   <tr>
     <td>Triplet</td>
