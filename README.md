@@ -180,7 +180,7 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
 ### Text Representation
 From our empirical study, we find that there is a strong association between text representation (train stage) and text query types (test stage). We propose a stochastic text representation. During the training stage, we select K words from L length text caption. At this time, K is uniformly randomly sampled among integer numbers from 1 (tag length) to L (caption length). Unlike the dropout method, which determines the length by probability value, stochastic sampling has a dynamic input length.
 
-```
+```python
 def text_load(self, tag_list):
     """
     input:  tag_list = list of tag
@@ -206,12 +206,12 @@ def text_load(self, tag_list):
     - torch==1.12.1 (Please install it according to your [CUDA version](https://pytorch.org/get-started/previous-versions/).)
     
 2. Other requirements:
-    - pip install -r requirements.txt
+    - pip install -e .
 
 ```
 conda create -n YOUR_ENV_NAME python=3.8
 conda activate YOUR_ENV_NAME
-pip install -r requirements.txt
+pip install -e .
 ```
 
 ### Using Pretrained Model
