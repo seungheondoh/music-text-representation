@@ -1,7 +1,7 @@
 ## Toward Universal Text-to-Music Retrieval
-This is a PyTorch implementation of [Toward Universal Text-to-Music Retrieval](#) for multi-modal music representation learning. Check our [demo](https://seungheondoh.github.io/text-music-representation-demo/)
+This is a PyTorch implementation of [Toward Universal Text-to-Music Retrieval](https://arxiv.org/abs/2211.14558) for multi-modal music representation learning. Check our [demo](https://seungheondoh.github.io/text-music-representation-demo/)
 
-> [**Toward Universal Text-to-Music Retrieval**](#)   
+> [**Toward Universal Text-to-Music Retrieval**](https://arxiv.org/abs/2211.14558)   
 > SeungHeon Doh, Minz Won, Keunwoo Choi, Juhan Nam   
 > submitted ICASSP 2023   
 
@@ -11,7 +11,7 @@ This is a PyTorch implementation of [Toward Universal Text-to-Music Retrieval](#
 - We introduced effective design choices for universal text-to-music retrieval. Recent text-music representation learning frameworks are assessed by using a carefully designed dataset and downstream tasks
 - Our proposed stochastic text representation achieved robust performance in tag-level, caption-level, and zero-shot query retrieval cases
 - Contrastive models achieve better performance than triplet models in both retrieval and downstream tasks.
-- Reproducible code, [pre-trained models](https://zenodo.org/record/7322135), MSD-ECALS [music-caption dataset](https://github.com/SeungHeonDoh/msd-subsets) and the [downstream benchmark](https://github.com/SeungHeonDoh/msu-benchmark) are available online
+- Reproducible code [pre-trained models](https://zenodo.org/record/7322135), MSD-ECALS [music-caption dataset](https://github.com/SeungHeonDoh/msd-subsets) and the [downstream benchmark](https://github.com/SeungHeonDoh/msu-benchmark) are available online
 for future research.
 
 <p align = "center">
@@ -177,6 +177,71 @@ The following results are based on [MSD-ECAL](https://github.com/SeungHeonDoh/ms
 **Note:** 
 - See our paper for more results on different benchmarks, including MTAT, MTG-Jamendo, FMA, GTZAN, Emotify, KVT.
 
+
+### Requirements
+
+1. Install python and PyTorch:
+    - python==3.8
+    - torch==1.12.1 (Please install it according to your [CUDA version](https://pytorch.org/get-started/previous-versions/).)
+    
+2. Other requirements:
+    - pip install -e .
+
+```
+conda create -n YOUR_ENV_NAME python=3.8
+conda activate YOUR_ENV_NAME
+pip install -e .
+```
+
+### Using Pretrained Model
+```
+wget https://zenodo.org/record/7322135/files/mtr.tar.gz
+tar -zxvf mtr.tar.gz 
+```
+
+### Inference
+Please refer to [notebook/demo.ipynb](https://github.com/SeungHeonDoh/music-text-representation/blob/main/notebook/demo.ipynb) for tag, sentence, unseen query retrieval
+
+Below is the audio and text embedding extraction code.
+```python
+from mtr.utils.demo_utils import get_model
+from mtr.utils.audio_utils import load_audio, STR_CH_FIRST
+
+framework='contrastive' 
+text_type='bert'
+text_rep="stochastic"
+# load model
+model, tokenizer, config = get_model(framework=framework, text_type=text_type, text_rep=text_rep)
+
+def text_infer(query, model, tokenizer):
+    text_input = tokenizer(query, return_tensors="pt")['input_ids']
+    with torch.no_grad():
+        text_embs = model.encode_bert_text(text_input, None)
+    return text_embs
+
+def audio_infer(audio_path, model, sr=16000, duration=9.91):
+    audio, _ = load_audio(
+            path=audio_path,
+            ch_format= STR_CH_FIRST,
+            sample_rate= sr,
+            downmix_to_mono= True
+    )
+    input_size = int(duration * sr)
+    hop = int(len(audio) // input_size)
+    audio = np.stack([np.array(audio[i * input_size : (i + 1) * input_size]) for i in range(hop)]).astype('float32')
+    audio_tensor = torch.from_numpy(audio)
+    with torch.no_grad():
+        z_audio = model.encode_audio(audio_tensor)
+    audio_embs = z_audio.mean(0).detach().cpu()
+    return audio_embs
+
+query = "fusion jazz with synth, bass, drums, saxophone"
+audio_path = "your_audio"
+text_embs = text_infer(query, model, tokenizer)
+audio_embs = audio_infer(audio_path, model)
+```
+
+
 ### Text Representation
 From our empirical study, we find that there is a strong association between text representation (train stage) and text query types (test stage). We propose a stochastic text representation. During the training stage, we select K words from L length text caption. At this time, K is uniformly randomly sampled among integer numbers from 1 (tag length) to L (caption length). Unlike the dropout method, which determines the length by probability value, stochastic sampling has a dynamic input length.
 
@@ -199,26 +264,6 @@ def text_load(self, tag_list):
     return text
 ```
 
-### Requirements
-
-1. Install python and PyTorch:
-    - python==3.8
-    - torch==1.12.1 (Please install it according to your [CUDA version](https://pytorch.org/get-started/previous-versions/).)
-    
-2. Other requirements:
-    - pip install -e .
-
-```
-conda create -n YOUR_ENV_NAME python=3.8
-conda activate YOUR_ENV_NAME
-pip install -e .
-```
-
-### Using Pretrained Model
-```
-wget https://zenodo.org/record/7322135/files/mtr.tar.gz
-tar -zxvf mtr.tar.gz 
-```
 
 ### 1.Text-Music Pre-training (Quick start: mtr/contrastive/main.sh)
 
@@ -284,10 +329,10 @@ We would like to thank the [MoCoV3](https://github.com/facebookresearch/moco-v3)
 ### Citation
 Please consider citing our paper in your publications if the project helps your research. BibTeX reference is as follow.
 ```
-@inproceedings{toward2023doh,
+@article{toward2022doh,
   title={Toward Universal Text-to-Music Retrieval},
   author={SeungHeon Doh, Minz Won, Keunwoo Choi, Juhan Nam},
-  booktitle = {},
-  year={2023}
+  journal={arXiv preprint arXiv:2211.14558},
+  year={2022}
 }
 ```
