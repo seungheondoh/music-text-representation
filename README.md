@@ -193,16 +193,13 @@ conda activate YOUR_ENV_NAME
 pip install -e .
 ```
 
-### Using Pretrained Model
+### Using Pretrained Model & Inference
 ```
 wget https://zenodo.org/record/7322135/files/mtr.tar.gz
 tar -zxvf mtr.tar.gz 
 ```
 
-### Inference
-Please refer to [notebook/demo.ipynb](https://github.com/SeungHeonDoh/music-text-representation/blob/main/notebook/demo.ipynb) for tag, sentence, unseen query retrieval
-
-Below is the audio and text embedding extraction code.
+Please refer to [notebook/demo.ipynb](https://github.com/SeungHeonDoh/music-text-representation/blob/main/notebook/demo.ipynb) for [MSD-testset](https://github.com/SeungHeonDoh/msd-subsets) tag, sentence, unseen query retrieval. Below is the audio and text embedding extraction code.
 ```python
 from mtr.utils.demo_utils import get_model
 from mtr.utils.audio_utils import load_audio, STR_CH_FIRST
