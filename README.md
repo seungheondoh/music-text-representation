@@ -3,7 +3,7 @@ This is a PyTorch implementation of [Toward Universal Text-to-Music Retrieval](h
 
 > [**Toward Universal Text-to-Music Retrieval**](https://arxiv.org/abs/2211.14558)   
 > SeungHeon Doh, Minz Won, Keunwoo Choi, Juhan Nam   
-> submitted ICASSP 2023   
+> To appear ICASSP 2023   
 
 
 **TL;DR**

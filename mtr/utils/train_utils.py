@@ -20,6 +20,8 @@ class EarlyStopping():
             self.counter +=1
             if self.counter >= self.tolerance:  
                 self.early_stop = True
+            else:
+                self.counter = 0
 
 class Logger(SummaryWriter):
     def __init__(self, logdir):
