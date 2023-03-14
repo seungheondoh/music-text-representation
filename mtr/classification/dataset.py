@@ -67,7 +67,7 @@ class ECALS_Dataset(Dataset):
             text = tag_list
         elif self.text_rep == "tag":
             text = [random.choice(tag_list)]
-        elif self.text_rep == "stocastic":
+        elif self.text_rep == "stochastic":
             k = random.choice(range(1, len(tag_list)+1)) 
             text = random.sample(tag_list, k)
         return text

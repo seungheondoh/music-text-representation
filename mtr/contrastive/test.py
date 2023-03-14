@@ -85,7 +85,7 @@ parser.add_argument("--attention_ndim", default=256, type=int)
 parser.add_argument("--temperature", default=0.2, type=float)
 parser.add_argument("--mlp_dim", default=128, type=int)
 parser.add_argument("--text_type", default="bert", type=str)
-parser.add_argument("--text_rep", default="stocastic", type=str)
+parser.add_argument("--text_rep", default="stochastic", type=str)
 
 def main():
     args = parser.parse_args()

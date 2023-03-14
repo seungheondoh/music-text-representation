@@ -22,7 +22,7 @@ frontend: cnn
 mix_type: cf
 audio_rep: mel
 text_type: bert
-text_rep: stocastic
+text_rep: stochastic
 cos: true
 attention_nlayers: 4
 attention_ndim: 256
