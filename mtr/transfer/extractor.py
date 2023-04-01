@@ -15,6 +15,11 @@ from mtr.utils.train_utils import Logger, AverageMeter, ProgressMeter, EarlyStop
 from mtr.utils.eval_utils import single_query_evaluation, _text_representation
 from mtr.utils.transfer_utils import get_model, get_evaluation
 from sklearn import metrics
+import torch.backends.cudnn as cudnn
+from tqdm import tqdm
+random.seed(42)
+torch.manual_seed(42)
+cudnn.deterministic = True
 
 parser = argparse.ArgumentParser(description='PyTorch MSD Training')
 parser.add_argument('--data_dir', type=str, default="../../../msd-splits/dataset")
