@@ -326,10 +326,10 @@ We would like to thank the [MoCoV3](https://github.com/facebookresearch/moco-v3)
 ### Citation
 Please consider citing our paper in your publications if the project helps your research. BibTeX reference is as follow.
 ```
-@article{toward2022doh,
+@inproceedings{doh2023toward,
   title={Toward Universal Text-to-Music Retrieval},
-  author={SeungHeon Doh, Minz Won, Keunwoo Choi, Juhan Nam},
-  journal={arXiv preprint arXiv:2211.14558},
-  year={2022}
+  author={Doh, SeungHeon and Won, Minz and Choi, Keunwoo and Nam, Juhan},
+  booktitle={ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  year={2023}
 }
 ```
